@@ -3,8 +3,6 @@
 import os
 import sys
 import operator
-#import multiprocessing
-#from Bio import SeqIO
 import math
 import random
 num_str=''
@@ -63,24 +61,6 @@ def length_GC(string):
 	return str(L) + '\t' + str(G) + '\t' + str(C) + '\n'
 
 def ORF(f1,num_str):
-#	f = open(f1,'rU')
-
-#	records = SeqIO.parse(f1, 'fasta')
-#	SeqDict = SeqIO.to_dict(SeqIO.parse(f, "fasta"))
-
-#	for record in records:
-#		resultInfo = []
-#		line = SeqDict[record.id].seq
-#		strings = [line, line[1:], line[2:]]
-#		for index, string in enumerate(strings):
-#			positions = readByThree(string, index)
-#			positions = sorted(positions, key = operator.itemgetter(0))
-#			for pos in positions:
-#				resultInfo.append(getInfo(line, pos))
-#		writeInfo(resultInfo,record.id,num_str)
-#	f.close()
-
-
 	f = open(f1)
 	name = f.readline().split('>')
 	name1 = name[1].split(' ')
@@ -135,20 +115,11 @@ def LenTop3(path,opath,top):
 	nf.close()
 
 def main(f2, f3):
-	#print "Running LGC with %d process(es)" % processes
 	print "Input: " + f2
-	#print "param:" + f4
 	print "Output: " + f3
-
-	#f=open(f4,'r')
-	#s = f.read().split('\n')
 	s = ['-0.05215	0.10796	-0.071697	0.01759','0.1014	-0.16872	0.0858349	-0.0083821']
-	#f.close()
 	c = s[0].split('\t')
 	n = s[1].split('\t')
-	#print c
-	#print n
-
 	num_list = ['0','1','2','3','4','5','6','7','8','9']
 	random.shuffle(num_list)
 	num_str = ''.join(num_list)
@@ -158,8 +129,6 @@ def main(f2, f3):
 	oopath = 'ORF'+num_str+'.temp'
 	outpath1 = 'top'+num_str+'.temp'
 	outpath2 = f3
-
-
 	LenTop3(oopath,outpath1,3)
 	oo = open(outpath2,'w')
 	a1 = eval(c[0])
@@ -201,13 +170,10 @@ def main(f2, f3):
 	oo.write("fnc\t")
 	oo.write("\n")
 	for i in range(0,m):
-
 		segment = para[i].split('\n')
 
 		if len(segment) == 1:
 			J[i] = 1
-
-
 		number  = segment.pop()
 		string[i] = len(segment)
 		fc  = [0]*len(segment)
@@ -215,11 +181,8 @@ def main(f2, f3):
 		C   = [0]*len(segment)
 		LL_f = 0
 		GC_f = 0
-
 		ffc = 1
 		ffn = 1
-
-
 		for j in range(0,len(segment)):
 			seg = segment[j].split('\t')
 			C[j]= eval(seg[3])
