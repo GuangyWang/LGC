@@ -13,10 +13,9 @@ LGC web server is publicly available at [http://bigd.big.ac.cn/lgc/calculator](h
 Required packages for executing LGC
 ----------
 
-Install Python 2.7 and Biopython:
+Install Python 2.7:
 1. Get Python 2.7 at https://www.python.org/download/ or install with your operating system’s package manager.
-2. Get Biopython at http://biopython.org/wiki/Biopython .
-3. You can follow the guide ( http://biopython.org/DIST/docs/install/Installation.html#sec4) to install Python and Biopython step by step.
+2. You can follow the guide ( http://biopython.org/DIST/docs/install/Installation.html#sec4) to install Python step by step.
 
 User should include the PATH of above mentioned libraries / packages inside their SYSTEM PATH variable. 
 
